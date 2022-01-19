@@ -1,7 +1,7 @@
 {
     "name": "fshangala/faculty",
     "description": "Faculty component of a school management system in lumen",
-    "type": "metapackage",
+    "type": "project",
     "license": "AGPL-3.0-or-later",
     "autoload": {
         "psr-4": {
