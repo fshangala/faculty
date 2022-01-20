@@ -10,3 +10,4 @@ composer require fshangala/faculty
 ```
 $app->register(Fshangala\Faculty\FacultyServiceProvider::class);
 ```
+- run migrations with `php artisan migrate`
