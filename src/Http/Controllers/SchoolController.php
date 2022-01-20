@@ -9,7 +9,7 @@ class SchoolController extends Controller
 {
     public function create(Request $request)
     {
-        $validData = $this->validate($request, [
+        $this->validate($request, [
             'name'=>'required|unique:schools|alpha'
         ]);
         $entry = School::create($request->all());

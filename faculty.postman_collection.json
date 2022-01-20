@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "51d48f17-997e-45f9-b4f8-385e3d90ff21",
+		"name": "faculty",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "school",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Engineering",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/faculty/school/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"school",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all schools",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/school",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"school"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/school/delete?id=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"school",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
