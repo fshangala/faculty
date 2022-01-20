@@ -43,13 +43,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/faculty/school",
+							"raw": "{{baseUrl}}/faculty/school/all",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"faculty",
-								"school"
+								"school",
+								"all"
 							]
 						}
 					},
@@ -79,8 +80,389 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/school?id=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"school"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/school/update?name=School of Engineering&id=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"school",
+								"update"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "School of Engineering"
+								},
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
+		},
+		{
+			"name": "program",
+			"item": [
+				{
+					"name": "all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/faculty/program/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"program",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "school_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Electrical",
+									"type": "text"
+								},
+								{
+									"key": "short_name",
+									"value": "EEE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/faculty/program/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"program",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/program/delete?id=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"program",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/program?id=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"program"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/program/update?id=2&name=Electric and Electronic Engineering",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"program",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								},
+								{
+									"key": "name",
+									"value": "Electric and Electronic Engineering"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "course",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "program_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Physics",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "PHY",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/faculty/course/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"course",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/course/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"course",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/course/delete?id=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"course",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/course?id=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"course"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/course/update?id=2&name=Chemistry&code=CHE",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"course",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								},
+								{
+									"key": "name",
+									"value": "Chemistry"
+								},
+								{
+									"key": "code",
+									"value": "CHE"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "bearer;{{token}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
