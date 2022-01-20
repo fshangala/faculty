@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-    protected $fillables = [
+    protected $fillable = [
         'program_id',
         'name',
         'code'
