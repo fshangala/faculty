@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class School extends Model
 {
-    protected $fillables = [
+    protected $fillable = [
         'name'
     ];
     public function programs()

@@ -8,6 +8,8 @@ Route::group([
     $router->group(['prefix'=>'/faculty'],function($router){
         $router->group(['prefix'=>'/school'],function($router){
             $router->get('/','SchoolController@all');
+            $router->post('/create','SchoolController@create');
+            $router->delete('/delete','SchoolController@delete');
         });
     });
 });
