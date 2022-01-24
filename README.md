@@ -1,6 +1,9 @@
 # faculty
  Faculty package as a component of a school management system
 
+## Dependancies
+- fshangala/auth2-ation
+
 ## Installation
 ```
 composer require fshangala/faculty

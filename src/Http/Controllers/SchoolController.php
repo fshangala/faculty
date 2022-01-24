@@ -16,7 +16,7 @@ class SchoolController extends Controller
     {
         $this->authorize('permission',[['action'=>'create','resource'=>'schools']]);
         $this->validate($request, [
-            'name'=>'required|unique:schools|alpha'
+            'name'=>'required|unique:schools'
         ]);
         $entry = School::create($request->all());
         return response($entry);
