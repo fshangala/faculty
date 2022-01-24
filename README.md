@@ -19,6 +19,7 @@ $app->register(Fshangala\Faculty\FacultyServiceProvider::class);
 1. schools
 2. programs
 3. courses
+4. profiles
 - predefined types for schools
 none
 - predefined types for programs

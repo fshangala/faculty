@@ -27,5 +27,12 @@ Route::group([
             $router->put('/update','CourseController@update');
             $router->delete('/delete','CourseController@delete');
         });
+        $router->group(['prefix'=>'/profile'],function($router){
+            $router->get('/','ProfileController@get');
+            $router->post('/create','ProfileController@create');
+            $router->get('/all','ProfileController@all');
+            $router->put('/update','ProfileController@update');
+            $router->put('/delete','ProfileController@delete');
+        });
     });
 });
