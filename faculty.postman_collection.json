@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "51d48f17-997e-45f9-b4f8-385e3d90ff21",
+		"_postman_id": "8e97b8ee-236c-4e0f-b2e2-e20148ff432c",
 		"name": "faculty",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -421,6 +421,157 @@
 								{
 									"key": "code",
 									"value": "CHE"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "profile",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "first_name",
+									"value": "John",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "Doe",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "+260974836436",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "dob",
+									"value": "20/02/2001",
+									"type": "text"
+								},
+								{
+									"key": "nic",
+									"value": "438820/16/1",
+									"type": "default"
+								},
+								{
+									"key": "country",
+									"value": "Zambia",
+									"type": "default"
+								},
+								{
+									"key": "city",
+									"value": "Lusaka",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "97/16 Ng'ombe",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/faculty/profile/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"profile",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/profile/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"profile",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/profile?id=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"profile"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/profile/update?id=1&phone=+260977822963",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"profile",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "phone",
+									"value": "+260977822963"
 								}
 							]
 						}
