@@ -2,7 +2,6 @@
 namespace Fshangala\Faculty\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Fshangala\Faculty\Models\Course;
 use Fshangala\Faculty\Models\Profile;
 use Illuminate\Http\Request;
 
@@ -21,7 +20,8 @@ class ProfileController extends Controller
             'nic'=>'required',
             'country'=>'required',
             'city'=>'required',
-            'address'=>'required'
+            'address'=>'required',
+            'type'=>'required'
         ]);
         $validData['status']='pending';
         $entry = Profile::create($validData);

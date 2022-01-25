@@ -32,7 +32,21 @@ Route::group([
             $router->post('/create','ProfileController@create');
             $router->get('/all','ProfileController@all');
             $router->put('/update','ProfileController@update');
-            $router->put('/delete','ProfileController@delete');
+            $router->delete('/delete','ProfileController@delete');
+        });
+        $router->group(['prefix'=>'/student'],function($router){
+            $router->get('/','StudentController@get');
+            $router->post('/create','StudentController@create');
+            $router->get('/all','StudentController@all');
+            $router->put('/update','StudentController@update');
+            $router->put('/delete','StudentController@delete');
+        });
+        $router->group(['prefix'=>'/staff'],function($router){
+            $router->get('/','StaffController@get');
+            $router->post('/create','StaffController@create');
+            $router->get('/all','StaffController@all');
+            $router->put('/update','StaffController@update');
+            $router->put('/delete','StaffController@delete');
         });
     });
 });

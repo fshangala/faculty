@@ -14,8 +14,11 @@ class CreateStaffsTable extends Migration
     public function up()
     {
         Schema::create('staffs', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->unique();
+            $table->unsignedInteger('profile_id');
             $table->timestamps();
+
+            $table->primary('id');
         });
     }
 

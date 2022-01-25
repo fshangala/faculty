@@ -17,6 +17,7 @@ class Profile extends Model
         'country',
         'city',
         'address',
+        'type',
         'status'
     ];
 
