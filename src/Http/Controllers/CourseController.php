@@ -29,10 +29,10 @@ class CourseController extends Controller
     public function get(Request $request)
     {
         $validData = $this->validate($request,[
-            'id'=>'required|exists:courses'
+            'code'=>'required|exists:courses'
         ]);
-        $this->authorize('permission',[['action'=>'read','resource'=>'courses','target'=>$validData['id']]]);
-        $entry = Course::find($validData['id']);
+        $this->authorize('permission',[['action'=>'read','resource'=>'courses','target'=>$validData['code']]]);
+        $entry = Course::where('code',$validData['code'])->first();
         $entry['program'] = $entry->program;
         return response($entry);
     }
@@ -40,10 +40,10 @@ class CourseController extends Controller
     public function update(Request $request)
     {
         $validData = $this->validate($request,[
-            'id'=>'required|exists:courses'
+            'code'=>'required|exists:courses'
         ]);
-        $this->authorize('permission',[['action'=>'update','resource'=>'courses','target'=>$validData['id']]]);
-        $entry = Course::find($validData['id']);
+        $this->authorize('permission',[['action'=>'update','resource'=>'courses','target'=>$validData['code']]]);
+        $entry = Course::where('code',$validData['code'])->first();
         $entry->update($request->all());
         return response($entry);
     }
@@ -51,10 +51,10 @@ class CourseController extends Controller
     public function delete(Request $request)
     {
         $validData = $this->validate($request, [
-            'id'=>'required|exists:courses'
+            'code'=>'required|exists:courses'
         ]);
-        $this->authorize('permission',[['action'=>'delete','resource'=>'courses','target'=>$validData['id']]]);
-        $entry = Course::find($validData['id']);
+        $this->authorize('permission',[['action'=>'delete','resource'=>'courses','target'=>$validData['code']]]);
+        $entry = Course::where('code',$validData['code'])->first();
         $entry->delete();
         return response($entry);
     }

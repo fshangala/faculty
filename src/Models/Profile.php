@@ -25,4 +25,14 @@ class Profile extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function student()
+    {
+        return $this->hasOne(Student::class);
+    }
+
+    public function staff()
+    {
+        return $this->hasOne(Staff::class);
+    }
 }

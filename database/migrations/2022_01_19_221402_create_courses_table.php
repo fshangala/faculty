@@ -14,11 +14,12 @@ class CreateCoursesTable extends Migration
     public function up()
     {
         Schema::create('courses', function (Blueprint $table) {
-            $table->increments("id");
+            $table->string("code")->unique();
             $table->unsignedInteger("program_id");
             $table->string("name");
-            $table->string("code");
             $table->timestamps();
+
+            $table->primary('code');
         });
     }
 

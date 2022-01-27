@@ -43,6 +43,8 @@ class ProfileController extends Controller
         $this->authorize('permission',[['action'=>'read','resource'=>'profiles','target'=>$validData['id']]]);
         $entry = Profile::find($validData['id']);
         $entry['user'] = $entry->user;
+        $entry['student'] = $entry->student;
+        $entry['staff'] = $entry->staff;
         return response($entry);
     }
 
