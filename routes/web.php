@@ -31,6 +31,7 @@ Route::group([
             $router->get('/','ProfileController@get');
             $router->post('/create','ProfileController@create');
             $router->get('/all','ProfileController@all');
+            $router->get('/user','ProfileController@getUserProfile');
             $router->put('/update','ProfileController@update');
             $router->delete('/delete','ProfileController@delete');
         });
@@ -52,6 +53,7 @@ Route::group([
             $router->get('/','GradeController@get');
             $router->post('/register-course','GradeController@registerCourse');
             $router->get('/all','GradeController@all');
+            $router->get('/student-grades','GradeController@getStudentGrades');
             $router->put('/update','GradeController@update');
             $router->delete('/delete','GradeController@delete');
         });

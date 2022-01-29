@@ -8,7 +8,9 @@ class Course extends Model
     protected $fillable = [
         'code',
         'program_id',
-        'name'
+        'name',
+        'year',
+        'semester'
     ];
 
     public function program()

@@ -13,7 +13,9 @@ class CourseController extends Controller
         $validData = $this->validate($request,[
             'program_id'=>'required|exists:programs,id',
             'name'=>'required|unique:courses',
-            'code'=>'required|unique:courses'
+            'code'=>'required|unique:courses',
+            'year'=>'required',
+            'semester'=>'required'
         ]);
         $entry = Course::create($validData);
         return response($entry);

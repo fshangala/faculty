@@ -13,7 +13,7 @@ class GradeController extends Controller
         $this->authorize('permission',[['action'=>'create','resource'=>'grades']]);
         $validData = $this->validate($request,[
             'student_id'=>'required|exists:students,id',
-            'course_code'=>'required|unique:grades,course_code'
+            'course_code'=>'required|exists:courses,code'
         ]);
         $validData['status'] = 'pending';
         $entry = Grade::create($validData);
@@ -35,6 +35,16 @@ class GradeController extends Controller
         $this->authorize('permission',[['action'=>'read','resource'=>'grades','target'=>$validData['id']]]);
         $entry = Grade::find($validData['id']);
         $entry['student'] = $entry->student;
+        return response($entry);
+    }
+
+    public function getStudentGrades(Request $request)
+    {
+        $validData = $this->validate($request,[
+            'student_id'=>'required|exists:students,id'
+        ]);
+        $this->authorize('permission',[['action'=>'read','resource'=>'grades','type'=>$validData['student_id']]]);
+        $entry = Grade::where('student_id',$validData['student_id'])->get();
         return response($entry);
     }
 

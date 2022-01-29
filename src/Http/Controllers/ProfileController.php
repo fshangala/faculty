@@ -2,6 +2,7 @@
 namespace Fshangala\Faculty\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Fshangala\Faculty\Events\ProfileWasCreated;
 use Fshangala\Faculty\Models\Profile;
 use Illuminate\Http\Request;
 
@@ -25,6 +26,7 @@ class ProfileController extends Controller
         ]);
         $validData['status']='pending';
         $entry = Profile::create($validData);
+        event(new ProfileWasCreated($entry));
         return response($entry);
     }
 
@@ -42,6 +44,16 @@ class ProfileController extends Controller
         ]);
         $this->authorize('permission',[['action'=>'read','resource'=>'profiles','target'=>$validData['id']]]);
         $entry = Profile::find($validData['id']);
+        $entry['user'] = $entry->user;
+        $entry['student'] = $entry->student;
+        $entry['staff'] = $entry->staff;
+        return response($entry);
+    }
+
+    public function getUserProfile(Request $request)
+    {
+        $entry = Profile::where('user_id',$request->user()->id)->firstOrFail();
+        $this->authorize('permission',[['action'=>'read','resource'=>'profiles','target'=>$entry->id]]);
         $entry['user'] = $entry->user;
         $entry['student'] = $entry->student;
         $entry['staff'] = $entry->staff;

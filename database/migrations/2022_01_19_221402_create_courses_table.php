@@ -17,6 +17,8 @@ class CreateCoursesTable extends Migration
             $table->string("code")->unique();
             $table->unsignedInteger("program_id");
             $table->string("name");
+            $table->string("year");
+            $table->string('semester');
             $table->timestamps();
 
             $table->primary('code');
