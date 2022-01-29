@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class GradeController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function registerCourse(Request $request)
     {
         $this->authorize('permission',[['action'=>'create','resource'=>'grades']]);

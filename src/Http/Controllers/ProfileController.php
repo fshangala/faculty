@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function create(Request $request)
     {
         $this->authorize('permission',[['action'=>'create','resource'=>'profiles']]);

@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class ProgramController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function create(Request $request)
     {
         $this->authorize('permission',[['action'=>'create','resource'=>'programs']]);
@@ -37,6 +42,11 @@ class ProgramController extends Controller
         $entry['school'] = $entry->school;
         $entry['courses'] = $entry->courses;
         return response($entry);
+    }
+
+    public function getUserProgram(Request $request)
+    {
+
     }
 
     public function update(Request $request)

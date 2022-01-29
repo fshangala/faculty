@@ -297,7 +297,7 @@
 							"formdata": [
 								{
 									"key": "program_id",
-									"value": "2",
+									"value": "1",
 									"type": "text"
 								},
 								{
@@ -309,6 +309,16 @@
 									"key": "code",
 									"value": "PHY",
 									"type": "text"
+								},
+								{
+									"key": "year",
+									"value": "2022",
+									"type": "default"
+								},
+								{
+									"key": "semester",
+									"value": "1",
+									"type": "default"
 								}
 							]
 						},
@@ -376,7 +386,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/faculty/course?id=2",
+							"raw": "{{baseUrl}}/faculty/course?code=PHY",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -386,8 +396,8 @@
 							],
 							"query": [
 								{
-									"key": "id",
-									"value": "2"
+									"key": "code",
+									"value": "PHY"
 								}
 							]
 						}
@@ -442,7 +452,7 @@
 							"formdata": [
 								{
 									"key": "user_id",
-									"value": "1",
+									"value": "2",
 									"type": "text"
 								},
 								{
@@ -472,7 +482,7 @@
 								},
 								{
 									"key": "nic",
-									"value": "438820/16/1",
+									"value": "439820/16/1",
 									"type": "default"
 								},
 								{
@@ -536,7 +546,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/faculty/profile?id=1",
+							"raw": "{{baseUrl}}/faculty/profile?id=5",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -547,8 +557,27 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "5"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/profile/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"profile",
+								"user"
 							]
 						}
 					},
@@ -589,7 +618,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/faculty/profile/delete?id=1",
+							"raw": "{{baseUrl}}/faculty/profile/delete?id=5",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -601,7 +630,7 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "5"
 								}
 							]
 						}
@@ -622,59 +651,34 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "user_id",
+									"key": "id",
+									"value": "201901077",
+									"type": "text"
+								},
+								{
+									"key": "profile_id",
 									"value": "1",
 									"type": "text"
 								},
 								{
-									"key": "first_name",
-									"value": "John",
+									"key": "intake_year",
+									"value": "2019",
 									"type": "text"
 								},
 								{
-									"key": "last_name",
-									"value": "Doe",
+									"key": "intake_month",
+									"value": "10",
 									"type": "text"
 								},
 								{
-									"key": "phone",
-									"value": "+260974836436",
+									"key": "program_id",
+									"value": "1",
 									"type": "text"
-								},
-								{
-									"key": "gender",
-									"value": "male",
-									"type": "text"
-								},
-								{
-									"key": "dob",
-									"value": "20/02/2001",
-									"type": "text"
-								},
-								{
-									"key": "nic",
-									"value": "438820/16/1",
-									"type": "default"
-								},
-								{
-									"key": "country",
-									"value": "Zambia",
-									"type": "default"
-								},
-								{
-									"key": "city",
-									"value": "Lusaka",
-									"type": "default"
-								},
-								{
-									"key": "address",
-									"value": "97/16 Ng'ombe",
-									"type": "default"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{baseUrl}}/faculty/student/create?id=201901077&profile_id=1&intake_year=2019&intake_month=10&program_id=1",
+							"raw": "{{baseUrl}}/faculty/student/create",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -682,28 +686,6 @@
 								"faculty",
 								"student",
 								"create"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "201901077"
-								},
-								{
-									"key": "profile_id",
-									"value": "1"
-								},
-								{
-									"key": "intake_year",
-									"value": "2019"
-								},
-								{
-									"key": "intake_month",
-									"value": "10"
-								},
-								{
-									"key": "program_id",
-									"value": "1"
-								}
 							]
 						}
 					},
@@ -930,6 +912,172 @@
 							"path": [
 								"faculty",
 								"staff",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "grade",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "course_code",
+									"value": "PHY",
+									"type": "default"
+								},
+								{
+									"key": "student_id",
+									"value": "201901077",
+									"type": "default"
+								},
+								{
+									"key": "ca",
+									"value": "",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/faculty/grade/register-course",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"grade",
+								"register-course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/grade/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"grade",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/grade?id=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"grade"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get student grades",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/grade/student-grades?student_id=201901077",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"grade",
+								"student-grades"
+							],
+							"query": [
+								{
+									"key": "student_id",
+									"value": "201901077"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/grade/update?id=1&ca=23",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"grade",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "ca",
+									"value": "23"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/faculty/grade/delete?id=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faculty",
+								"grade",
 								"delete"
 							],
 							"query": [

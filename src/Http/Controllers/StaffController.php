@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class StaffController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function create(Request $request)
     {
         $this->authorize('permission',[['action'=>'create','resource'=>'staffs']]);

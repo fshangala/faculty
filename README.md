@@ -12,6 +12,7 @@ composer require fshangala/faculty
 - register the following service provider
 ```
 $app->register(Fshangala\Faculty\FacultyServiceProvider::class);
+$app->register(Fshangala\Faculty\EventServiceProvider::class);
 ```
 - run migrations with `php artisan migrate`
 ## Criteria for permissions
